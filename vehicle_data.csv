@@ -1,0 +1,59 @@
+Timestamp,Plate Number,Vehicle Model,Violation,Image Path
+20241230_213144,KL791423,ACCESS Z  125 DISC CBS,No violation - Car,detected_vehicles/frame_KL791423_20241230_213144.jpg
+20241230_213145,KL79A1423,DIO DRUM,No violation - Car,detected_vehicles/frame_KL79A1423_20241230_213145.jpg
+20241230_213150,KL79A423,ACTIVA 6G STD,No violation - Car,detected_vehicles/frame_KL79A423_20241230_213150.jpg
+20241230_215659,KL791423,ACCESS Z  125 DISC CBS,No violation - Car,detected_vehicles/frame_KL791423_20241230_215659.jpg
+20241230_215700,KL79A1423,DIO DRUM,No violation - Car,detected_vehicles/frame_KL79A1423_20241230_215700.jpg
+20241230_215704,KL79A423,ACTIVA 6G STD,No violation - Car,detected_vehicles/frame_KL79A423_20241230_215704.jpg
+20241230_220609,HP40D0077,THAR LX D MT 4WD 4S HT,No violation - Car,detected_vehicles/frame_HP40D0077_20241230_220609.jpg
+20241230_220611,HP400077,MARUTI 800,No violation - Car,detected_vehicles/frame_HP400077_20241230_220611.jpg
+20241230_220618,HP400007,BALENO DELTA PETROL,No violation - Car,detected_vehicles/frame_HP400007_20241230_220618.jpg
+20241230_221502,HP40D0077,THAR LX D MT 4WD 4S HT,No violation - Car,detected_vehicles/frame_HP40D0077_20241230_221502.jpg
+20241230_222452,KL07CY5656,THAR LX D AT 4WD 4S HT,No violation,detected_vehicles/frame_KL07CY5656_20241230_222452.jpg
+20241230_223910,UNKNOWN,Unknown Model,Helmet violation - 1 person(s) without helmet,violation_frames/frame_UNKNOWN_20241230_223910.jpg
+20241230_223910,UNKNOWN,Unknown Model,Helmet violation - 1 person(s) without helmet,violation_frames/frame_UNKNOWN_20241230_223910.jpg
+20241230_223910,UNKNOWN,Unknown Model,Helmet violation - 1 person(s) without helmet,violation_frames/frame_UNKNOWN_20241230_223910.jpg
+20241230_223911,UNKNOWN,Unknown Model,Helmet violation - 1 person(s) without helmet,violation_frames/frame_UNKNOWN_20241230_223910.jpg
+20241230_233602,KL64H9512,TRIBER RXT PETROL MT 1.0L ECE,No violation - Car,detected_vehicles/frame_KL64H9512_20241230_233602.jpg
+20241230_233705,KL64H9512,TRIBER RXT PETROL MT 1.0L ECE,No violation - Car,detected_vehicles/frame_KL64H9512_20241230_233705.jpg
+20241231_174938,KL64H9512,TRIBER RXT PETROL MT 1.0L ECE,No seatbelt violation,detected_vehicles/frame_KL64H9512_20241231_174938.jpg
+20241231_174940,KL64H9517,X PULSE 200,No seatbelt violation,detected_vehicles/frame_KL64H9517_20241231_174940.jpg
+20241231_175247,KL64H9512,TRIBER RXT PETROL MT 1.0L ECE,No seatbelt violation,detected_vehicles/frame_KL64H9512_20241231_175247.jpg
+20241231_175249,KL64H9517,X PULSE 200,No seatbelt violation,detected_vehicles/frame_KL64H9517_20241231_175249.jpg
+20241231_181351,KL64H9512,TRIBER RXT PETROL MT 1.0L ECE,No violation,detected_vehicles/frame_KL64H9512_20241231_181351.jpg
+20241231_181353,KL64H9517,X PULSE 200,No violation,detected_vehicles/frame_KL64H9517_20241231_181353.jpg
+
+20250103_225752,UNKNOWN,Unknown Model,Helmet violation - 2 rider(s),violation_frames/frame_UNKNOWN_20250103_225752.jpg
+20250103_225754,UNKNOWN,Unknown Model,Helmet violation - 1 rider(s),violation_frames/frame_UNKNOWN_20250103_225754.jpg
+20250103_225756,UNKNOWN,Unknown Model,Helmet violation - 1 rider(s),violation_frames/frame_UNKNOWN_20250103_225756.jpg
+20250103_225759,UNKNOWN,Unknown Model,Helmet violation - 1 rider(s),violation_frames/frame_UNKNOWN_20250103_225759.jpg
+20250103_225801,UNKNOWN,Unknown Model,Helmet violation - 1 rider(s),violation_frames/frame_UNKNOWN_20250103_225801.jpg
+20250103_225929,UNKNOWN,Unknown Model,Helmet violation - 1 rider(s),violation_frames/frame_UNKNOWN_20250103_225929.jpg
+20250103_225931,UNKNOWN,Unknown Model,Helmet violation - 1 rider(s),violation_frames/frame_UNKNOWN_20250103_225931.jpg
+20250103_225935,UNKNOWN,Unknown Model,Helmet violation - 1 rider(s),violation_frames/frame_UNKNOWN_20250103_225935.jpg
+20250103_225937,UNKNOWN,Unknown Model,Helmet violation - 1 rider(s),violation_frames/frame_UNKNOWN_20250103_225937.jpg
+20250103_225940,UNKNOWN,Unknown Model,Helmet violation - 1 rider(s),violation_frames/frame_UNKNOWN_20250103_225940.jpg
+20250103_225942,UNKNOWN,Unknown Model,Helmet violation - 2 rider(s),violation_frames/frame_UNKNOWN_20250103_225942.jpg
+20250103_225942,UNKNOWN,Unknown Model,Helmet violation - 1 rider(s),violation_frames/frame_UNKNOWN_20250103_225942.jpg
+20250103_225944,UNKNOWN,Unknown Model,Triple Riding Violation,violation_frames/frame_UNKNOWN_20250103_225944.jpg
+20250103_225944,UNKNOWN,Unknown Model,Helmet violation - 2 rider(s),violation_frames/frame_UNKNOWN_20250103_225944.jpg
+20250103_225946,UNKNOWN,Unknown Model,Helmet violation - 2 rider(s),violation_frames/frame_UNKNOWN_20250103_225946.jpg
+20250103_225949,UNKNOWN,Unknown Model,Helmet violation - 2 rider(s),violation_frames/frame_UNKNOWN_20250103_225949.jpg
+20250103_225950,UNKNOWN,Unknown Model,Triple Riding Violation,violation_frames/frame_UNKNOWN_20250103_225950.jpg
+20250103_225953,UNKNOWN,Unknown Model,Helmet violation - 2 rider(s),violation_frames/frame_UNKNOWN_20250103_225953.jpg
+20250104_154757,UNKNOWN,Unknown Model,Helmet violation - 1 rider(s),violation_frames/frame_UNKNOWN_20250104_154757.jpg
+20250104_205927,KL64H9512,TRIBER RXT PETROL MT 1.0L ECE,No violation,detected_vehicles/frame_KL64H9512_20250104_205927.jpg
+20250104_205929,KL64H9517,X PULSE 200,No violation,detected_vehicles/frame_KL64H9517_20250104_205929.jpg
+20250108_201055,UNKNOWN,Unknown Model,Helmet violation - 1 rider(s),violation_frames/frame_UNKNOWN_20250108_201055.jpg
+20250108_201059,UNKNOWN,Unknown Model,Helmet violation - 1 rider(s),violation_frames/frame_UNKNOWN_20250108_201059.jpg
+20250108_201101,UNKNOWN,Unknown Model,Helmet violation - 1 rider(s),violation_frames/frame_UNKNOWN_20250108_201101.jpg
+20250108_201103,UNKNOWN,Unknown Model,Helmet violation - 1 rider(s),violation_frames/frame_UNKNOWN_20250108_201103.jpg
+20250108_201105,UNKNOWN,Unknown Model,Helmet violation - 1 rider(s),violation_frames/frame_UNKNOWN_20250108_201105.jpg
+20250108_201106,UNKNOWN,Unknown Model,Helmet violation - 3 rider(s) & Triple riding violation - 4 riders,violation_frames/frame_UNKNOWN_20250108_201106.jpg
+20250108_201106,UNKNOWN,Unknown Model,Helmet violation - 2 rider(s) & Triple riding violation - 3 riders,violation_frames/frame_UNKNOWN_20250108_201106.jpg
+20250108_201107,UNKNOWN,Unknown Model,Helmet violation - 3 rider(s) & Triple riding violation - 4 riders,violation_frames/frame_UNKNOWN_20250108_201107.jpg
+20250108_201107,UNKNOWN,Unknown Model,Helmet violation - 2 rider(s) & Triple riding violation - 3 riders,violation_frames/frame_UNKNOWN_20250108_201107.jpg
+20250108_201110,UNKNOWN,Unknown Model,Helmet violation - 2 rider(s) & Triple riding violation - 3 riders,violation_frames/frame_UNKNOWN_20250108_201110.jpg
+20250108_201111,UNKNOWN,Unknown Model,Helmet violation - 2 rider(s) & Triple riding violation - 3 riders,violation_frames/frame_UNKNOWN_20250108_201111.jpg
+20250108_201111,UNKNOWN,Unknown Model,Helmet violation - 2 rider(s),violation_frames/frame_UNKNOWN_20250108_201111.jpg
+20250108_201114,UNKNOWN,Unknown Model,Helmet violation - 1 rider(s),violation_frames/frame_UNKNOWN_20250108_201114.jpg
