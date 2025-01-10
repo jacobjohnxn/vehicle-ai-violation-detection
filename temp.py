@@ -19,8 +19,12 @@ class VehicleDetectionSystem:
         # Initialize models
         self.reader = easyocr.Reader(['en'])
         # Single custom model for all detections
-        self.custom_model = YOLO(r'training_folder/newyolox.pt')
-        
+        self.custom_model = YOLO(r'models/newyolox.pt')
+        self.bike_model = YOLO('yolov8n.pt')  # For general vehicle detection
+        self.vehicle_classes = {
+        2: 'car',
+        3: 'motorcycle',
+        }
         # Class mappings for the custom model
         self.class_names = {
             0: 'helmet',
@@ -118,59 +122,90 @@ class VehicleDetectionSystem:
         return None
 
     def check_violations(self, frame):
-        results = self.custom_model(frame)
+        custom_results = self.custom_model(frame)
         helmet_count = 0
         no_helmet_count = 0
-        total_riders = 0  # This will be the sum of helmet and no_helmet detections
         plates = []
         
-        for result in results[0].boxes.data:
+        # Process license plates first
+        for result in custom_results[0].boxes.data:
             class_id = int(result[5])
             confidence = float(result[4])
             x1, y1, x2, y2 = map(int, result[:4])
             
-            if confidence > 0.25:  # You might want to increase this threshold
-                if class_id == 2:  # license plate
-                    plates.append((x1, y1, x2, y2))
-                    cv2.rectangle(frame, (x1, y1), (x2, y2), (255, 0, 0), 2)
-                    cv2.putText(frame, "License Plate", (x1, y1-10), 
-                            cv2.FONT_HERSHEY_SIMPLEX, 0.5, (255, 0, 0), 2)
-                elif class_id == 0:  # helmet
-                    helmet_count += 1
-                elif class_id == 1:  # no helmet
-                    no_helmet_count += 1
+            if confidence > 0.25 and class_id == 2:  # license plate
+                plates.append((x1, y1, x2, y2))
+                cv2.rectangle(frame, (x1, y1), (x2, y2), (255, 0, 0), 2)
+                cv2.putText(frame, "License Plate", (x1, y1-10), 
+                        cv2.FONT_HERSHEY_SIMPLEX, 0.5, (255, 0, 0), 2)
 
-        # Calculate total riders after all detections
-        total_riders = helmet_count + no_helmet_count
+        # Detect bikes
+        bike_results = self.bike_model(frame)
+        bikes = []
         
-        # Draw bounding boxes and labels for riders
-        for result in results[0].boxes.data:
+        for result in bike_results[0].boxes.data:
             class_id = int(result[5])
-            if class_id == 0:  # helmet
+            confidence = float(result[4])
+            if confidence > 0.3 and class_id == 3:  # motorcycle
                 x1, y1, x2, y2 = map(int, result[:4])
-                cv2.rectangle(frame, (x1, y1), (x2, y2), (0, 255, 0), 2)
-                cv2.putText(frame, f"Helmet", (x1, y1-10), 
-                        cv2.FONT_HERSHEY_SIMPLEX, 0.5, (0, 255, 0), 2)
-            elif class_id == 1:  # no helmet
-                x1, y1, x2, y2 = map(int, result[:4])
-                cv2.rectangle(frame, (x1, y1), (x2, y2), (0, 0, 255), 2)
-                cv2.putText(frame, f"No Helmet", (x1, y1-10), 
-                        cv2.FONT_HERSHEY_SIMPLEX, 0.5, (0, 0, 255), 2)
+                bikes.append((x1, y1, x2, y2))
+                cv2.rectangle(frame, (x1, y1), (x2, y2), (0, 255, 255), 2)
+                cv2.putText(frame, "Motorcycle", (x1, y1-10), 
+                        cv2.FONT_HERSHEY_SIMPLEX, 0.5, (0, 255, 255), 2)
+
+        if bikes:
+            for bike in bikes:
+                bike_x1, bike_y1, bike_x2, bike_y2 = bike
+                bike_center_x = (bike_x1 + bike_x2) // 2
+                bike_center_y = (bike_y1 + bike_y2) // 2
+                bike_width = bike_x2 - bike_x1
+                
+                for result in custom_results[0].boxes.data:
+                    class_id = int(result[5])
+                    confidence = float(result[4])
+                    x1, y1, x2, y2 = map(int, result[:4])
+                    person_center_x = (x1 + x2) // 2
+                    person_center_y = (y1 + y2) // 2
+                    
+                    # Expanded detection zone
+                    horizontal_threshold = bike_width * 1.5
+                    vertical_threshold = bike_width  # Using bike width as reference
+                    
+                    if (confidence > 0.25 and 
+                        abs(person_center_x - bike_center_x) < horizontal_threshold and 
+                        abs(person_center_y - bike_center_y) < vertical_threshold):
+                        
+                        if class_id == 0:  # helmet
+                            helmet_count += 1
+                            cv2.rectangle(frame, (x1, y1), (x2, y2), (0, 255, 0), 2)
+                            cv2.putText(frame, f"Helmet", (x1, y1-10), 
+                                    cv2.FONT_HERSHEY_SIMPLEX, 0.5, (0, 255, 0), 2)
+                        elif class_id == 1:  # no helmet
+                            no_helmet_count += 1
+                            cv2.rectangle(frame, (x1, y1), (x2, y2), (0, 0, 255), 2)
+                            cv2.putText(frame, f"No Helmet", (x1, y1-10), 
+                                    cv2.FONT_HERSHEY_SIMPLEX, 0.5, (0, 0, 255), 2)
+
+            total_riders = helmet_count + no_helmet_count
+            cv2.putText(frame, f"Total Riders: {total_riders}", (10, 30),
+                        cv2.FONT_HERSHEY_SIMPLEX, 0.7, (255, 255, 255), 2)
+            
+            violations = []
+            if no_helmet_count > 0:
+                violations.append(f"Helmet violation - {no_helmet_count} rider(s)")
+            if total_riders > 2:
+                violations.append(f"Triple riding violation - {total_riders} riders")
+                cv2.putText(frame, f"Triple Riding Detected!", (10, 90),
+                            cv2.FONT_HERSHEY_SIMPLEX, 0.6, (0, 0, 255), 2)
+            
+            violation = " & ".join(violations) if violations else "No violation"
+            return violation, plates, (len(violations) > 0)
         
-        # Display total riders count on frame
-        cv2.putText(frame, f"Total Riders: {total_riders}", (10, 30),
-                    cv2.FONT_HERSHEY_SIMPLEX, 0.7, (255, 255, 255), 2)
-        
-        # Check for violations
-        violations = []
-        if no_helmet_count > 0:
-            violations.append(f"Helmet violation - {no_helmet_count} rider(s)")
-        if total_riders > 2:
-            violations.append(f"Triple riding violation - {total_riders} riders")
-        
-        violation = " & ".join(violations) if violations else "No violation"
-        
-        return violation, plates, (len(violations) > 0)
+        return "No violation", plates, False
+
+
+
+
 
     def process_frame(self, frame):
         current_time = time.time()
