@@ -1,6 +1,6 @@
 # Vehicle Violation Detection System
 
-This project is a Vehicle Violation Detection System that identifies traffic violations such as missing helmets and triple riding on motorcycles, using computer vision techniques. It includes two main components:
+This project is a Vehicle Violation Detection System that identifies traffic violations such as missing helmets and triple riding on motorcycles, using yolov8. It includes two main components:
 
 you can download my custom trained yolo models from: https://drive.google.com/drive/folders/1T7j03oBzUlBEAtS2aVXxLMTmpygHzoDK?usp=sharing
 
