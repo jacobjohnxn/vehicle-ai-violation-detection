@@ -95,7 +95,7 @@ yolov8n.pt: Pre-trained YOLOv8n model (download from Ultralytics YOLOv8).
 Upload both models to your Google Drive folder (e.g., /MyDrive/vehicle_detection1/).
 Configure Google Drive
 Ensure your Google Drive folder structure matches:
-
+```bash
 /MyDrive/vehicle_detection1/
   ├── best.pt
   ├── yolov8n.pt
@@ -104,6 +104,7 @@ Ensure your Google Drive folder structure matches:
   ├── processed_videos/   (auto-created)
   ├── vehicle_data.csv    (auto-created)
   └── videos/             (create this manually)
+```
 Upload video files (e.g., .mp4, .avi) to the videos subfolder.
 Run the Colab Script
 Copy the entire collabcode.py content into a Colab cell.
@@ -129,12 +130,14 @@ Upload videos to /MyDrive/vehicle_detection1/videos/.
 Run the script in Colab to process videos and save results.
 Check /MyDrive/vehicle_detection1/vehicle_data.csv for violation logs and subfolders for images.
 Project Structure
+```bash
 
 vehicle-ai-violation-detection/
 ├── gui.py              # Local GUI script
 ├── collabcode.py       # Colab processing script
 ├── README.md           # This file
 └── <your-json-file>.json  # Google Drive API credentials (not tracked in Git)
+```
 Notes
 Ensure your Google Drive has sufficient storage for videos, images, and CSV data.
 The Colab script assumes videos are in the videos folder; adjust videos_dir in collabcode.py if needed.
