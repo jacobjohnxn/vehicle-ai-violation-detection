@@ -1,6 +1,0 @@
-Timestamp,Plate Number,Vehicle Model,Violation,Image Path
-20250110_222701,HP40D0077,THAR LX D MT 4WD 4S HT,No violation,detected_vehicles/frame_HP40D0077_20250110_222701.jpg
-20250110_222753,UNKNOWN,Unknown Model,Helmet violation - 1 rider(s),violation_frames/frame_UNKNOWN_20250110_222753.jpg
-20250110_222755,UNKNOWN,Unknown Model,Helmet violation - 1 rider(s),violation_frames/frame_UNKNOWN_20250110_222755.jpg
-20250110_222757,UNKNOWN,Unknown Model,Helmet violation - 1 rider(s),violation_frames/frame_UNKNOWN_20250110_222757.jpg
-20250110_222757,UNKNOWN,Unknown Model,Helmet violation - 2 rider(s) & Triple riding violation - 3 riders,violation_frames/frame_UNKNOWN_20250110_222757.jpg
